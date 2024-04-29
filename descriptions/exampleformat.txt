@@ -1,2 +1,3 @@
 map_image , animal_image, desription .
 
+otter_sprite.png,sea_otter_irl.png, The sea otter is a mammal that usually lives around reefs and their diets consist of sea urchins and more(elaborate later) their scientific name is Enhydra lutris and curently they are a threatened species(???)
