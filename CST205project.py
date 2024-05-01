@@ -4,11 +4,12 @@ from flask_bootstrap import Bootstrap5
 
 # create an instance of Flask
 app = Flask(__name__)
+bootstrap = Bootstrap5(app)
 
 # route decorator binds a function to a URL
 @app.route('/')
 def home_page():
-   return 'Home page with monterey map and biomes'
+   return render_template('index.html')
 
 
 @app.route('/biome1')
