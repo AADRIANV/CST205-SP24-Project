@@ -12,10 +12,10 @@ def home_page():
    return render_template('index.html')
 
 
-@app.route('/biome1')
-def environment1():
-   return 'First biome page'
+@app.route('/birdwatch')
+def bird_watch():
+   return render_template('bird_watch.html')
 
 @app.route('/about us')
-def environment2():
-   return 'this is a project created by Adrian Villalpando, Jocy Cortez-Arellano, Issac Espinoza, Ronaldo Chagolla-Bonilla' 
+def about_us():
+   return render_template('about_us.html')
