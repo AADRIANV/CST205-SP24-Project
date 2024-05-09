@@ -9,7 +9,7 @@
       <!-- Loading css stylesheet -->
       <link rel="stylesheet" href="{{ url_for('static', filename='styles/styles.css') }}">
   </head>
-<body>
+<body class="bg-image">
   <h1>CST 205 Project Team 3483</h1>
 
   <!-- NAVBAR START -->
@@ -26,7 +26,35 @@
   </ul>
   <br>
   <!-- NAVBAR END -->
+  <!-- Button to trigger modal -->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#animalModal">
+  Show Animal Details
+</button>
 
-  <img src="/static/project_images/temporary_map.png"></img>
+<!-- The Modal -->
+<div class="modal fade" id="animalModal" tabindex="-1" aria-labelledby="animalModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="animalModalLabel">Animal Details</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <img src="https://example.com/lion.jpg" alt="Lion Picture" class="img-fluid mb-3">
+        <p>Name: Lion</p>
+        <p>Species: Panthera leo</p>
+        <p>Habitat: Savannah</p>
+        <p>Diet: Carnivore</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
 </body>
 </html>
