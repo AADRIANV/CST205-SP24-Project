@@ -1,5 +1,5 @@
-
-from flask import Flask, render_template
+import requests
+from flask import Flask, render_template, current_app
 from flask_bootstrap import Bootstrap5
 
 
@@ -15,6 +15,46 @@ def home_page():
 
 @app.route('/birdwatch')
 def bird_watch():
+   search_url = 'https://www.googleapis.com/youtube/v3/search'
+   video_url = 'https://www.googleapis.com/youtube/v3/videos'
+   search_param = {
+      'key' : 'AIzaSyBnrbxuMZrF7mSIyELpEioYxxHBv6odRA8',
+      'q' : 'learn flask',
+      'part' : 'snippet',
+      'maxResluts' : 3,
+      'type' : 'video'
+
+      }
+
+   r = requests.get(search_url,params=search_param)
+
+   results= r.json()['items']
+ 
+   video_ids = []
+   for result in results:
+    video_ids.append(result['id']['videoId'])
+    
+    video_params = {
+       'key' : 'AIzaSyBnrbxuMZrF7mSIyELpEioYxxHBv6odRA8',
+       'id' : ','.join(video_ids), 
+       'part': 'snippet,contentDetails',
+       'maxResluts' : 3
+
+    }
+   r = requests.get(video_url, params= video_params)
+    
+   results = r.json()['items']
+   for result in results:
+      video_data = {
+         'id': result['id'],
+         'url' : f'https://www.youtube.com/watch?v={ result['id'] }',
+         'thumbnail' : result['snippet']['thumbnails']['high']['url'],
+         'duration' : result['contentDetails']['duration'],
+         'title' : result['snippet']['title']
+
+      }
+   
+
    return render_template('bird_watch.html')
 
 @app.route('/about us')
