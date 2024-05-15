@@ -15,7 +15,7 @@ bootstrap = Bootstrap5(app)
 def home_page():
 
    API_KEY = API_KEY_INFO.ninjaAPIKey
-   animalarray = ['sea otter', 'seagull', 'Ruby-Throated Hummingbird', 'Humpback Whale']
+   animalarray = ['sea otter', 'seagull', 'Ruby-Throated Hummingbird','sea lion', 'Humpback Whale']
    responseArray = []
    for name in animalarray:
       api_url = 'https://api.api-ninjas.com/v1/animals?name={}'.format(name)
