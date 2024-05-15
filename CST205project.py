@@ -10,6 +10,11 @@ import API_KEY_INFO
 app = Flask(__name__)
 bootstrap = Bootstrap5(app)
 
+def get_weather_info():
+   city = 'Marina'
+   api_url = 'https://api.api-ninjas.com/v1/weather?city={}'.format(city)
+   response = requests.get(api_url, headers={'X-Api-Key': 'YOUR_API_KEY'})
+
 # route decorator binds a function to a URL
 @app.route('/')
 def home_page():
