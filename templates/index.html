@@ -26,13 +26,67 @@
   </ul>
   <br>
   <!-- NAVBAR END -->
-  <!-- Button to trigger modal -->
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#animalModal">
-  Show Animal Details
-</button>
 
-<!-- The Modal -->
-<div class="modal fade" id="animalModal" tabindex="-1" aria-labelledby="animalModalLabel" aria-hidden="true">
+  <p class="bg-primary">
+
+    Please click on the animals below for more information.
+
+  </p>
+<!-- Button to trigger modal -->
+<div class="container-fluid">
+  <button type="button" class="btn btn-primary bg-transparent" data-bs-toggle="modal" data-bs-target="#otterModal">
+    <div class="container">
+      <div class="row-2">
+        <div class="col-2">
+          <img class="img-fluid" src="/static/project_images/otter_sprite.png" alt="Otter Sprite">
+        </div>
+      </div>
+    </div>
+  </button>
+  
+  <button type="button" class="btn btn-primary bg-transparent" data-bs-toggle="modal" data-bs-target="#hummingbirdModal">
+    <div class="container">
+      <div class="row-2">
+        <div class="">
+          <img class="img-fluid" src="" alt="Hummingbird Sprite">
+        </div>
+      </div>
+    </div>
+  </button>
+  
+  <button type="button" class="btn btn-primary bg-transparent" data-bs-toggle="modal" data-bs-target="#seagullModal">
+    <div class="container">
+      <div class="row-2">
+        <div class="col-2">
+          <img class="img-fluid" src="/static/project_images/animal_sprites/californiagull_sprite.png" alt="Seagull Sprite">
+        </div>
+      </div>
+    </div>
+  </button>
+  
+  <button type="button" class="btn btn-primary bg-transparent" data-bs-toggle="modal" data-bs-target="#sealionModal">
+    <div class="container">
+      <div class="row-2">
+        <div class="col-2">
+          <img class="img-fluid" src="/static/project_images/animal_sprites/californiasealion_sprite.png" alt="Sea Lion Sprite">
+        </div>
+      </div>
+    </div> 
+  </button>
+  
+  <button type="button" class="btn btn-primary bg-transparent" data-bs-toggle="modal" data-bs-target="#lionModal">
+    <div class="container">
+      <div class="row-2">
+        <div class="col-2">
+          <img class="img-fluid" src="/static/project_images/animal_sprites/mountainlion_sprite.png" alt="Sea Lion Sprite">
+        </div>
+      </div>
+    </div> 
+  </button>
+</div>
+
+<!-- The Otter Modal -->
+<div class="modal fade" id="otterModal" tabindex="-1" aria-labelledby="animalModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
@@ -40,11 +94,12 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <img src="https://example.com/lion.jpg" alt="Lion Picture" class="img-fluid mb-3">
-        <p>Name: Lion</p>
-        <p>Species: Panthera leo</p>
-        <p>Habitat: Savannah</p>
-        <p>Diet: Carnivore</p>
+        <img src="/static/project_images/real_life_images/otter_2.jpg" alt="Otter Picture" class="img-fluid mb-3">
+        <p>{{animal[0][0].name}}</p>
+        <p>Species: {{animal[0][0].taxonomy.scientific_name}}</p>
+        <p>Habitat: {{animal[0][0].characteristics.habitat}}</p>
+        <p>Diet: {{animal[0][0].characteristics.diet}}</p>
+        <p>Favorite Food: {{animal[0][0].characteristics.favorite_food}}</p>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -53,6 +108,99 @@
   </div>
 </div>
 
+<!-- The Seagull Modal -->
+<div class="modal fade" id="seagullModal" tabindex="-1" aria-labelledby="animalModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="animalModalLabel">Animal Details</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <img src="/static/project_images/real_life_images/californiagull_2.jpg" alt="Seagull Picture" class="img-fluid mb-3">
+        <p>Name: {{animal[1][0].name}}</p>
+        <p>Species: {{animal[1][0].taxonomy.scientific_name}}</p>
+        <p>Habitat: {{animal[1][0].characteristics.habitat}}</p>
+        <p>Diet: {{animal[1][0].characteristics.diet}}</p>
+        <p>Favorite Food: {{animal[1][0].characteristics.favorite_food}}</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- The HummingBird Modal -->
+<div class="modal fade" id="hummingbirdModal" tabindex="-1" aria-labelledby="animalModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="animalModalLabel">Animal Details</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <img src="https://example.com/lion.jpg" alt="Hummingbird Picture" class="img-fluid mb-3">
+        <p>Name: {{animal[2][0].name}}</p>
+        <p>Species: {{animal[2][0].taxonomy.scientific_name}}</p>
+        <p>Habitat: {{animal[2][0].characteristics.habitat}}</p>
+        <p>Diet: {{animal[2][0].characteristics.diet}}</p>
+        <p>Favorite Food: {{animal[2][0].characteristics.favorite_food}}</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- The Sea Lion Modal -->
+<div class="modal fade" id="sealionModal" tabindex="-1" aria-labelledby="animalModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="animalModalLabel">Animal Details</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <img src="/static/project_images/real_life_images/californiasealion_2.jpg" alt="sea lion Picture" class="img-fluid mb-3">
+        <p>Name: {{animal[3][0].name}}</p>
+        <p>Species: {{animal[3][0].taxonomy.scientific_name}}</p>
+        <p>Habitat: {{animal[3][0].characteristics.habitat}}</p>
+        <p>Diet: {{animal[3][0].characteristics.diet}}</p>
+        <p>Favorite Food: {{animal[3][0].characteristics.favorite_food}}</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- The Mountain Lion Modal -->
+<div class="modal fade" id="lionModal" tabindex="-1" aria-labelledby="animalModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="animalModalLabel">Animal Details</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <img src="/static/project_images/real_life_images/mountainlion_2.jpg" alt="sea lion Picture" class="img-fluid mb-3">
+        <p>Name: {{animal[4][0].name}}</p>
+        <p>Species: {{animal[4][0].taxonomy.scientific_name}}</p>
+        <p>Habitat: {{animal[4][0].characteristics.habitat}}</p>
+        <p>Diet: {{animal[4][0].characteristics.diet}}</p>
+        <p>Favorite Food: {{animal[4][0].characteristics.favorite_food}}</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
 
 
 

@@ -1,6 +1,9 @@
 import requests
 from flask import Flask, render_template, current_app
 from flask_bootstrap import Bootstrap5
+import requests
+import API_KEY_INFO
+
 
 
 # create an instance of Flask
@@ -10,7 +13,19 @@ bootstrap = Bootstrap5(app)
 # route decorator binds a function to a URL
 @app.route('/')
 def home_page():
-   return render_template('index.html')
+
+   API_KEY = API_KEY_INFO.ninjaAPIKey
+   animalarray = ['sea otter', 'seagull', 'Ruby-Throated Hummingbird','sea lion', 'Mountain Lion','Humpback Whale']
+   responseArray = []
+   for name in animalarray:
+      api_url = 'https://api.api-ninjas.com/v1/animals?name={}'.format(name)
+      responseArray.append(requests.get(api_url, headers={'X-Api-Key': API_KEY}).json())
+
+   print("JSON", responseArray)
+
+   response = requests.get(api_url, headers={'X-Api-Key': API_KEY})
+
+   return render_template('index.html',animal=responseArray)
 
 
 @app.route('/birdwatch')
