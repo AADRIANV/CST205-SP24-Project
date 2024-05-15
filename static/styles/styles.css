@@ -1,9 +1,20 @@
 .bg-image {
-  background-image: url('/static/project_images/temporary_map.png'); /* Adjust the path as necessary */
+  background-image: url('/static/project_images/temporary_map.png'); 
   background-size: cover; /* Cover the entire page */
   background-position: center; /* Center the background image */
   background-repeat: no-repeat; /* Do not repeat the image */
   height: 100vh; /* Full height */
   width: 100vw; /* Full width */
   text-align: center;
+}
+
+.sprite {
+  background-image: url('/CST205-SP24-Project/static/project_images/otter_sprite.png');  
+  background-repeat: no-repeat;
+  width: 50px;  
+  height: 50px;  
+}
+
+.otter {
+  background-position: -100px -200px;  
 }
